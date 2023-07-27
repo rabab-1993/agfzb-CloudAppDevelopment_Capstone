@@ -1,11 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-    <body>
+    <title>Registration</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link
+      href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      .form-signin {
+        max-width: 330px;
+        padding: 1rem;
+      }
+
+      .form-signin .form-floating:focus-within {
+        z-index: 2;
+      }
+
+      .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    </style>
+    <main class="form-signin w-100 m-auto">
+      <form action="{% url 'djangoapp:registration' %}" method="post">
+        <h1 class="h3 mb-3 fw-normal">Registration</h1>
+
+        <div class="form-floating">
+          <label for="username"><b>User Name:</b></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter username "
+            name="username"
+            required
+          />
+        </div>
+        <div class="form-floating">
+          <label for="firstname">First Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="form-floating">
+          <label for="lastname">Last Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="form-floating">
+          <label for="floatingPassword">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        {% csrf_token %}
+        <button class="btn btn-primary w-100 py-2" type="submit">
+          Sign up
+        </button>
+      </form>
+    </main>
+
     <!--Add a registration form here -->
-    </body>
+    <!-- <form action="{% url 'djangoapp:registration' %}" method="post">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <hr />
+        <label for="username"><b>User Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter User Name: "
+          name="username"
+          required
+        />
+        <label for="firstname"><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter First Name: "
+          name="firstname"
+          required
+        />
+        <label for="lastname"><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter Last Name: "
+          name="lastname"
+          required
+        />
+        <label for="password"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password: "
+          name="password"
+          required
+        />
+        <div>
+          {% csrf_token %}
+          <button class="button" type="submit">Sign Up</button>
+        </div>
+      </div>
+    </form> -->
+  </body>
 </html>
