@@ -77,27 +77,42 @@
           </li>
           {% endif %}
         </ul>
-        <!-- <form class="d-flex" role="search">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="usernmae..."
-          />
-          <input
-            type="password"
-            class="form-control"
-            placeholder="password..."
-          />
-        </form>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-primary">
-            Login
-          </button>
-          <button type="button" class="btn btn-primary">Sign-up</button>
-        </div> -->
       </div>
     </nav>
     <!--Add a dealer table here -->
+    <table class="table" id="table" data-filter-control="true">
+      <thead>
+        <tr>
+          <th data-field="id">ID</th>
+          <th data-field="dealer-name">Dealer Name</th>
+          <th data-field="city">City</th>
+          <th data-field="address">Address</th>
+          <th data-field="zip">Zip</th>
+          <th data-field="state" data-filter-control="select">State</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dealer in dealership_list %}
+        <tr>
+          <td>{{dealer.id}}</td>
+          <td>
+            <a href="{% url 'djangoapp:dealer_details' dealer.id %}"
+              >{{dealer.full_name}}</a
+            >
+          </td>
+          .
+          <td>{{dealer.city}}</td>
+          <td>{{dealer.address}}</td>
+          <td>{{dealer.zip}}</td>
+          <td>{{dealer.st}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
+  <script>
+    $(function () {
+      $("#table").bootstrapTable();
+    });
+  </script>
 </html>
